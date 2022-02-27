@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: react-portifolio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-portifolio
+  template:
+    metadata:
+      labels:
+        app: react-portifolio
+    spec:
+      containers:
+        - name: react-portifolio
+          image: lucaslazpaz/portifolio:1.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+      restartPolicy: Always
